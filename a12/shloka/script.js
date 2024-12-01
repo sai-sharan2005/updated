@@ -19,33 +19,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 //-------------------------------/Fetching Data/-------------------------------
-function fetchTranslation(shlokaNum= window.currentShlokaNum || 1, languageKey) {
+async function fetchTranslation(shlokaNum= window.currentShlokaNum || 1, languageKey) {
   const tranRef = ref(
     database,
     `Shloka-${shlokaNum}/Translations/${languageKey}`
   );
+  const meaningRef1 = ref(database, `Shloka-${shlokaNum}/Meaning/${languageKey}`);
+  const snapshot3 =await get(meaningRef1);
+  if (snapshot3.exists()) {
+    const meaningText1 = snapshot3.val();
+    document.getElementById("meaning-box").innerHTML =`${meaningText1}`;
+  } else {
+    console.error("No text data found.");
+  }
   get(tranRef)
     .then((snapshot) => {
       if (snapshot.exists()) {
         document.getElementById("shloka-box").innerHTML = snapshot.val();
-      } else {
-        console.log("No data found.");
-      }
-    })
-    .catch((error) => {
-      console.log("Error translating.", error);
-    });
-}
-
-function fetchMeaning(shlokaNum= window.currentShlokaNum || 1, languageKey) {
-  const tranRef = ref(
-    database,
-    `Shloka-${shlokaNum}/Meaning/${languageKey}`
-  );
-  get(tranRef)
-    .then((snapshot2) => {
-      if (snapshot2.exists()) {
-        document.getElementById("meaning-box").innerHTML = snapshot2.val();
       } else {
         console.log("No data found.");
       }
@@ -66,27 +56,32 @@ window.translateMeaning = function (languageKey) {
 //-----------------------------/Onclick functions/-----------------------------
 window.navClick = async function (shlokaNumber) {
   window.currentShlokaNum = shlokaNumber;
-  const mainRef = ref(database, `Shloka-${shlokaNumber}/main`);
-  const meaningRef = ref(database, `Shloka-${shlokaNumber}/meaning`);
-  const audioRef = ref(database, `Shloka-${shlokaNumber}/aud`);
-  const audio1Ref = ref(database, `Shloka-${shlokaNumber}/audm`);
+  const mainRef = ref(database, `Shloka-${shlokaNumber}/main`);  
+  const meaningRef = ref(database, `Shloka-${shlokaNumber}/meaning/2`);
+ const audioRef = ref(database, `Shloka-${shlokaNumber}/audio`);
+ const audio1Ref = ref(database, `Shloka-${shlokaNumber}/audiom`);
   const wordtowordRef = ref(database, `Shloka-${shlokaNumber}/wordtoword`);
 
   const snapshot = await get(audioRef);
-  const snapshot3 = await get(audio1Ref);
-  const snapshot1 = await get(mainRef);
+  const snapshot1 = await get(mainRef);  
   const snapshot2 = await get(meaningRef);
+  const snapshot5 = await get(audio1Ref);
   const snapshot4 = await get(wordtowordRef);
 
-  if (snapshot.exists()) {
-    const audioUrl = snapshot.val();
-    document.getElementById("audPlayer").src = audioUrl;
+  if (snapshot2.exists()) {
+    const meaningText = snapshot2.val();
+    document.getElementById("meaning-box").innerHTML =`Meaning:${meaningText}`;
+  } else {
+    console.error("No text data found.");
+  }
+  if (snapshot5.exists()) {
+    const audioUrl = snapshot5.val();
+    document.getElementById("audPlayer1").src = audioUrl;
   } else {
     console.error("No audio data found.");
-  }
-  if (snapshot3.exists()) {
-    const audioUrl1 = snapshot.val();
-    document.getElementById("audPlayer").src = audioUrl1;
+  }if (snapshot.exists()) {
+    const audioUrl = snapshot.val();
+    document.getElementById("audPlayer").src = audioUrl;
   } else {
     console.error("No audio data found.");
   }
@@ -99,12 +94,6 @@ window.navClick = async function (shlokaNumber) {
   if (snapshot4.exists()) {
     const wordtowordText = snapshot4.val();
     document.getElementById("wordtoword-box").innerHTML = wordtowordText;
-  } else {
-    console.error("No text data found.");
-  }
-  if (snapshot2.exists()) {
-    const meaningText = snapshot2.val();
-    document.getElementById("meaning-box").innerHTML = meaningText;
   } else {
     console.error("No text data found.");
   }
