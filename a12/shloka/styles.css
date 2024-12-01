@@ -18,18 +18,9 @@ body{
     width: 100vw;
 }
 .meaning-box{
-    font-size: 1.4vw;
-    color: white;
-    width: 60vw;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 2vw;
-    box-shadow:rgb(0,0,0,0.4) 0  5px 5px;
-    background: rgba(80, 37, 14, 0.7);
+    font-size:1.4vw;
+    font-weight:700;
+    color:white;
 }
 .wordtoword-box{
     font-size: 1.4vw;
