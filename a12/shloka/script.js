@@ -44,13 +44,30 @@ async function fetchTranslation(shlokaNum= window.currentShlokaNum || 1, languag
       console.log("Error translating.", error);
     });
 }
+function fetchWordtoword(shlokaNum= window.currentShlokaNum || 1, languageKey) {
+  const tranRef = ref(
+    database,
+    `Shloka-${shlokaNum}/Wordtoword/${languageKey}`
+  );
+  get(tranRef)
+    .then((snapshot4) => {
+      if (snapshot4.exists()) {
+        document.getElementById("wordtoword-box").innerHTML = snapshot4.val();
+      } else {
+        console.log("No data found.");
+      }
+    })
+    .catch((error) => {
+      console.log("Error translating.", error);
+    });
+}
 //----------------------/Database Integration End/-----------------------
 
 window.changeText = function (languageKey) {
   fetchTranslation(window.currentShlokaNum, languageKey);
 };
-window.translateMeaning = function (languageKey) {
-  fetchMeaning(window.currentShlokaNum, languageKey);
+window.translateWordtoword = function (languageKey) {
+  fetchWordtoword(window.currentShlokaNum, languageKey);
 };
 
 //-----------------------------/Onclick functions/-----------------------------
