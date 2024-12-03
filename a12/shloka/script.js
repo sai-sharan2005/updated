@@ -32,6 +32,46 @@ async function fetchTranslation(shlokaNum= window.currentShlokaNum || 1, languag
   } else {
     console.error("No text data found.");
   }
+  const wordtowordRef1 = ref(database,`Shloka-${shlokaNum}/Wordtoword/${languageKey}`);
+  const snapshot6 =await get(wordtowordRef1);
+  if (snapshot6.exists()) {
+    const wordtowordText1 = snapshot6.val();
+    document.getElementById("wordtoword-box").innerHTML =`${wordtowordText1}`;
+  } else {
+    console.error("No text data found.");
+  }
+  const audioRef1 = ref(database,`Shloka-${shlokaNum}/audmf/${languageKey}`);
+  const snapshot7 =await get(audioRef1);
+  if (snapshot7.exists()) {
+    const audioUrl2 = snapshot7.val();
+    document.getElementById("audPlayer2").src = audioUrl2;
+  } else {
+    console.error("No text data found.");
+  }
+  const audioRef2 = ref(database,`Shloka-${shlokaNum}/audmm/${languageKey}`);
+  const snapshot8 =await get(audioRef2);
+  if (snapshot8.exists()) {
+    const audioUrl3 = snapshot8.val();
+    document.getElementById("audPlayer3").src = audioUrl3;
+  } else {
+    console.error("No text data found.");
+  }
+  const audioRef3 = ref(database,`Shloka-${shlokaNum}/audwf/${languageKey}`);
+  const snapshot9 =await get(audioRef3);
+  if (snapshot9.exists()) {
+    const audioUrl4 = snapshot9.val();
+    document.getElementById("audPlayer4").src = audioUrl4;
+  } else {
+    console.error("No text data found.");
+  }
+  const audioRef4 = ref(database,`Shloka-${shlokaNum}/audwm/${languageKey}`);
+  const snapshot10 =await get(audioRef4);
+  if (snapshot10.exists()) {
+    const audioUrl5 = snapshot10.val();
+    document.getElementById("audPlayer5").src = audioUrl5;
+  } else {
+    console.error("No text data found.");
+  }
   get(tranRef)
     .then((snapshot) => {
       if (snapshot.exists()) {
@@ -44,23 +84,7 @@ async function fetchTranslation(shlokaNum= window.currentShlokaNum || 1, languag
       console.log("Error translating.", error);
     });
 }
-function fetchWordtoword(shlokaNum= window.currentShlokaNum || 1, languageKey) {
-  const tranRef = ref(
-    database,
-    `Shloka-${shlokaNum}/Wordtoword/${languageKey}`
-  );
-  get(tranRef)
-    .then((snapshot4) => {
-      if (snapshot4.exists()) {
-        document.getElementById("wordtoword-box").innerHTML = snapshot4.val();
-      } else {
-        console.log("No data found.");
-      }
-    })
-    .catch((error) => {
-      console.log("Error translating.", error);
-    });
-}
+
 //----------------------/Database Integration End/-----------------------
 
 window.changeText = function (languageKey) {
@@ -75,8 +99,8 @@ window.navClick = async function (shlokaNumber) {
   window.currentShlokaNum = shlokaNumber;
   const mainRef = ref(database, `Shloka-${shlokaNumber}/main`);  
   const meaningRef = ref(database, `Shloka-${shlokaNumber}/meaning/2`);
- const audioRef = ref(database, `Shloka-${shlokaNumber}/aud`);
- const audio1Ref = ref(database, `Shloka-${shlokaNumber}/audm`);
+  const audioRef = ref(database, `Shloka-${shlokaNumber}/aud`);
+  const audio1Ref = ref(database, `Shloka-${shlokaNumber}/audm`);
   const wordtowordRef = ref(database, `Shloka-${shlokaNumber}/wordtoword`);
 
   const snapshot = await get(audioRef);
