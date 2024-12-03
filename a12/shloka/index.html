@@ -25,38 +25,44 @@
     <div class="container">
     <div class="wallpaper"></div>
     <div class="shloka1">
+        <div class="buttons">
+            <button onclick="changeText('1')">Telugu</button>
+            <button onclick="changeText('2')">English</button>
+            <button onclick="changeText('3')">Malayalam</button>
+            </div>
         <p>SHLOKA:</p>
         <p class="shloka-box" id="shloka-box">
             रागद्वेषवियुक्तैस्तु विषयानिन्द्रियैश्चरन् |<br> आत्मवश्यैर्विधेयात्मा प्रसादमधिगच्छति || 64||
         </p>
-        <p>MEANING:</p>
-        <p class="meaning-box" id="meaning-box">
-            ఇంద్రియ వస్తు-విషయములను వాడేటప్పుడు కూడా మనస్సుని నియంత్రించినవాడై, మమకార-ద్వేష రహితంగా ఉన్నవాడు భగవంతుని కృపకు పాత్రుడగును.
-        </p>
-        <div class="buttons">
-        <button onclick="changeText('1')">Telugu</button>
-        <button onclick="changeText('2')">English</button>
-        <button onclick="changeText('3')">Malayalam</button>
-        </div>
-        <p>FEMALE VOICE:</p>
         <audio id="audPlayer" controls>
             <source src="https://ik.imagekit.io/7cvdcnnrr/1.mp3?updatedAt=1732671032524&raw=1" type="audio/mpeg"> 
            
         </audio>
-        <p>MALE VOICE:</p>
-        <audio class="meaning-box" id="audPlayer1" controls>
+        <audio id="audPlayer1" controls>
             <source src="https://ik.imagekit.io/7cvdcnnrr/002_064_male_voice.mp3?updatedAt=1732798899519&raw=1" type="audio/mpeg"> 
         </audio>
         
+        <p>MEANING:</p>
+        <p class="meaning-box" id="meaning-box">
+            ఇంద్రియ వస్తు-విషయములను వాడేటప్పుడు కూడా మనస్సుని నియంత్రించినవాడై, మమకార-ద్వేష రహితంగా ఉన్నవాడు భగవంతుని కృపకు పాత్రుడగును.
+        </p>
+        <audio class="audPlayer2" id="audPlayer2" controls>
+            <source src="https://ik.imagekit.io/7cvdcnnrr/002_064_male_voice.mp3?updatedAt=1732798899519&raw=1" type="audio/mpeg"> 
+        </audio>
+        <audio class="audPlayer3" id="audPlayer3" controls>
+            <source src="https://ik.imagekit.io/7cvdcnnrr/002_064_male_voice.mp3?updatedAt=1732798899519&raw=1" type="audio/mpeg"> 
+        </audio>
+
         <p>WORD TO WORD:</p>
         <p class="wordtoword-box" id="wordtoword-box">
             rāga—attachment;  dveṣha—aversion;  viyuktaiḥ—free;  tu—but;  viṣhayān—objects of the senses;  indriyaiḥ—by the senses;  charan—while using;  ātma-vaśhyaiḥ—controlling one’s mind;  vidheya-ātmā—one who controls the mind;  prasādam—grace of God; adhigachchhati—attains|
         </p>
-        <div class="buttons">
-            <button onclick="translateWordtoword('1')">Telugu</button>
-            <button onclick="translateWordtoword('2')">English</button>
-            <button onclick="translateWordtoword('3')">Malayalam</button>
-            </div>
+        <audio class="audPlayer4" id="audPlayer4" controls>
+            <source src="https://ik.imagekit.io/7cvdcnnrr/002_064_male_voice.mp3?updatedAt=1732798899519&raw=1" type="audio/mpeg"> 
+        </audio>
+        <audio class="audPlayer5" id="audPlayer5" controls>
+            <source src="https://ik.imagekit.io/7cvdcnnrr/002_064_male_voice.mp3?updatedAt=1732798899519&raw=1" type="audio/mpeg"> 
+        </audio>       
     </div>
     </div>
 </body>
