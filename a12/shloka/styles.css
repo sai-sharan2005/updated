@@ -18,9 +18,18 @@ body{
     width: 100vw;
 }
 .meaning-box{
-    font-size:1.4vw;
-    font-weight:700;
-    color:white;
+    font-size: 1.4vw;
+    color: white;
+    width: 60vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 2vw;
+    box-shadow:rgb(0,0,0,0.4) 0  5px 5px;
+    background: rgba(80, 37, 14, 0.7);
 }
 .wordtoword-box{
     font-size: 1.4vw;
@@ -38,10 +47,10 @@ body{
 }
 .container{
     position: relative;
-    background: url("https://ik.imagekit.io/7cvdcnnrr/sa.jpg?updatedAt=1732971338644");
+    background: url("https://ik.imagekit.io/7cvdcnnrr/image.png?updatedAt=1734944912208");
     background-size: cover;
     width: 100vw;
-    height: 250vh;
+    height: 300vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +61,7 @@ body{
     top: 0;
     right: 0;
     width: 100vw;
-    height: 250vh;
+    height: 300vh;
     background:linear-gradient(to bottom,rgb(0,0,0,0.4),rgb(0,0,0,0.5),rgb(0,0,0,0.6),rgb(0,0,0,0.7),rgb(0,0,0,0.8));
     
 }
