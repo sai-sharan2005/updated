@@ -120,7 +120,8 @@ window.navClick = async function (shlokaNumber) {
     document.getElementById("audPlayer1").src = audioUrl;
   } else {
     console.error("No audio data found.");
-  }if (snapshot.exists()) {
+  }
+  if (snapshot.exists()) {
     const audioUrl = snapshot.val();
     document.getElementById("audPlayer").src = audioUrl;
   } else {
