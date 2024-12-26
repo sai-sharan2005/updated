@@ -102,12 +102,14 @@ window.navClick = async function (shlokaNumber) {
   const audioRef = ref(database, `Shloka-${shlokaNumber}/aud`);
   const audio1Ref = ref(database, `Shloka-${shlokaNumber}/audm`);
   const wordtowordRef = ref(database, `Shloka-${shlokaNumber}/wordtoword`);
+  const imageRef = ref(database, `Shloka-${shlokaNumber}/image`);
 
   const snapshot = await get(audioRef);
   const snapshot1 = await get(mainRef);  
   const snapshot2 = await get(meaningRef);
   const snapshot5 = await get(audio1Ref);
   const snapshot4 = await get(wordtowordRef);
+  const snapshot11 = await get(imageRef);
 
   if (snapshot2.exists()) {
     const meaningText = snapshot2.val();
@@ -139,4 +141,10 @@ window.navClick = async function (shlokaNumber) {
   } else {
     console.error("No text data found.");
   }
+  if (snapshot11.exists()) {
+    const imageUrl = snapshot11.val(); // Retrieve the image URL
+    document.getElementById("imgViewer").src = imageUrl; // Set the image URL as the src of the img element
+} else {
+    console.error("No image data found.");
+}
 };
