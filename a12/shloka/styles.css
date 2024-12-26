@@ -47,10 +47,10 @@ body{
 }
 .container{
     position: relative;
-    background: url("https://ik.imagekit.io/7cvdcnnrr/image.png?updatedAt=1734944912208");
+    background: url("https://ik.imagekit.io/7cvdcnnrr/face%20sheet.croped.jpg?updatedAt=1735007059499");
     background-size: cover;
     width: 100vw;
-    height: 300vh;
+    height: 310vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,14 +61,21 @@ body{
     top: 0;
     right: 0;
     width: 100vw;
-    height: 300vh;
+    height: 310vh;
     background:linear-gradient(to bottom,rgb(0,0,0,0.4),rgb(0,0,0,0.5),rgb(0,0,0,0.6),rgb(0,0,0,0.7),rgb(0,0,0,0.8));
     
 }
+.imgViewer {
+    position: relative;
+    width: 350px;
+    height: 350px; /* Adjust as needed */
+    overflow: hidden;
+}
+
 .shloka1{
     position: absolute;
     width: 65vw;
-    height: 100vw;
+    height: 120vw;
     padding: 2vw;
     display: flex;
     flex-direction: column;
