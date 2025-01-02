@@ -102,6 +102,13 @@ body{
     box-shadow:rgb(0,0,0,0.4) 0  5px 5px;
     background: rgba(80, 37, 14, 0.7);
 }
+.audiobox
+{ 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+gap: 10vw; 
+}
 ul{
     border-left: solid rgb(255,255,255,0.4) 5px;
     background: rgb(0,0,0,0.5);
